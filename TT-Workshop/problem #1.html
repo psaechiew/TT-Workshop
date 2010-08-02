@@ -1,0 +1,54 @@
+<html>
+<head>
+</head>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+/*
+*	Coded By Ping
+*/
+	var name = new Array();
+	var link = new Array();
+	var text;
+	$(document).ready(function(){
+		$("#mapping tr td:even").each(function(i){
+			name[i] = $(this).html();
+		});
+		$("#mapping tr td:odd").each(function(i){
+			link[i] = $(this).html();
+		});
+		text = $(".news").html();
+		for (var i=0; i < name.length; i++){
+			text = text.replace(new RegExp(name[i], "g"), '<a href="' + link[i] + '">' + name[i] + '</a>');
+		}
+		$(".news").replaceWith(text);
+	});
+</script>
+<body>
+  <table id="mapping">
+    <tr>
+      <td>bangkok</td>
+      <td>http://wikipedia.org/wiki/Thailand</td>
+    </tr>
+    <tr>
+      <td>Pakistan</td>
+      <td>http://wikipedia.org/wiki/Pakistan</td>
+    </tr>
+    <tr>
+      <td>Britain</td>
+      <td>http://wikipedia.org/wiki/England</td>
+    </tr>
+    <tr>
+      <td>India</td>
+      <td>http://wikipedia.org/wiki/India</td>
+    </tr>
+    <tr>
+      <td>London</td>
+      <td>http://wikipedia.org/wiki/London</td>
+    </tr>
+  </table>
+  
+  <div class="news">
+  Pakistan attempted to calm its diplomatic fallout with Britain by confirming that President Zardari would go ahead with a planned trip to meet David Cameron, despite anger over the Prime Minister’s comments that the country was “exporting terror”. Mr Zardari was under domestic pressure to cancel the trip after fury over Mr Cameron’s comments - made during last week’s visit to India - which have already led Pakistan’s powerful Inter-Services Intelligence (ISI) agency to cancel talks with British security officials in London. Opposition politicians in Pakistan had urged Mr Zardari to call off his trip, while demonstrators burnt an effigy of the Prime Minister on the streets of Karachi
+  </div>
+</body>
+</html> 
